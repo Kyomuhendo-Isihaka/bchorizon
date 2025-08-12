@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BC Horizon - Booked and Funded | Grow Your Business</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter for text, Poppins for headings (modern feel) -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Poppins:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome for Icons (e.g., payment methods) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Base body and font styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background: bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200 text-gray-900 antialiased;
+        }
+
+        /* Poppins for headings for a bolder, modern look */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+
+
+
+        /* Glassmorphism effect for the header */
+        .glass {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+
+
+        .message-box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 2.5rem;
+            /* Increased padding */
+            border-radius: 1rem;
+            /* More rounded */
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            /* Stronger shadow */
+            z-index: 1000;
+            text-align: center;
+            border: 3px solid theme('colors.blue.600');
+            /* Thicker border */
+            animation: fadeIn 0.4s ease-out;
+            /* Slightly longer fade in */
+            max-width: 90%;
+            width: 450px;
+            /* Wider message box */
+        }
+
+        .message-box-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            /* Darker backdrop */
+            z-index: 999;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -70%);
+            }
+
+            /* Starts higher */
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+
+            to {
+                opacity: 0;
+                transform: translate(-50%, -70%);
+            }
+        }
+
+        /* Blob animation for hero section - subtle, organic movement */
+        @keyframes blob {
+            0% {
+                transform: scale(1) translate(0, 0);
+            }
+
+            33% {
+                transform: scale(1.1) translate(20px, -20px);
+            }
+
+            66% {
+                transform: scale(0.9) translate(-20px, 20px);
+            }
+
+            100% {
+                transform: scale(1) translate(0, 0);
+            }
+        }
+
+        .animate-blob {
+            animation: blob 7s infinite cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+
+        .animation-delay-2000 {
+            animation-delay: 2s;
+        }
+
+        /* Fade in and fade in up animations for general elements */
+        .animate-fade-in {
+            animation: fadeInElement 1s ease-out forwards;
+            opacity: 0;
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUpElement 1s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeInElement {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUpElement {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Custom patterns for sections */
+        .bg-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.1' fill-rule='evenodd'%3E%3Cpath d='M.002 0h2v2h-2V0zm2 2h2v2h-2V2zm2-2h2v2h-2V0zM0 4h2v2H0V4zm2 0h2v2h-2V4zm2 0h2v2h-2V4z'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .bg-pattern-light {
+            background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'%3E%3Cpath d='M.002 0h2v2h-2V0zm2 2h2v2h-2V2zm2-2h2v2h-2V0zM0 4h2v2H0V4zm2 0h2v2h-2V4zm2 0h2v2h-2V4z'/%3E%3C/g%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+
+<body class="flex flex-col min-h-screen">
+
+    <!-- Message Box Element -->
+    <div id="messageBoxContainer"></div>
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50">
+        <nav class="glass shadow-lg rounded-b-2xl px-6 py-4 flex items-center justify-between">
+            <a href="index.html"
+                class="flex items-center space-x-4 transform hover:scale-105 transition-transform duration-300">
+                <!-- Modernized logo: stylized text with an icon -->
+                <img src="logo.jpg" alt="BC Horizon Logo" class="w-10 h-10 rounded-full shadow-md">
+                <span class="text-2xl font-black text-gray-900">BC Horizon</span>
+            </a>
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex gap-8">
+                <a href="index.html"
+                    class="text-gray-700 hover:text-blue-600 font-medium transition duration-300 relative group">Home<span
+                        class="absolute inset-x-0 bottom-0 h-0.5 bg-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span></a>
+
+                <a href="ebooks.html"
+                    class="text-gray-700 hover:text-blue-600 font-medium transition duration-300 relative group">E-books<span
+                        class="absolute inset-x-0 bottom-0 h-0.5 bg-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span></a>
+                <a href="contact.html"
+                    class="text-gray-700 hover:text-blue-600 font-medium transition duration-300 relative group">Contact
+                    Us<span
+                        class="absolute inset-x-0 bottom-0 h-0.5 bg-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span></a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-gray-700 hover:text-blue-600 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden flex-col bg-white shadow-lg md:hidden px-6 py-4 space-y-4">
+            <a href="index.html" class="block hover:text-blue-600 transition"
+                onclick="showSection('home-section'); toggleMobileMenu();">Home</a>
+
+            <a href="ebooks.html" class="block hover:text-blue-600 transition"
+                onclick="showSection('ebooks-section'); toggleMobileMenu();">E-books</a>
+            <a href="contact.html" class="block hover:text-blue-600 transition"
+                onclick="showSection('home-section', 'contact-form-section'); toggleMobileMenu();">Contact Us</a>
+        </div>
+    </header>
+
+
+
+    <div class="bg-blue-600 relative overflow-hidden">
+
+
+        <!-- E-books Section -->
+        <section id="ebooks" class="relative py-24 bg-gradient-to-b fro-white via-gray-50 to-gray-100">
+            <div class="max-w-7xl mx-auto px-6 md:px-12">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 animate-fade-in-up">Explore Our E-books
+                    </h2>
+                    <p class="mt-4 text-lg text-white max-w-2xl mx-auto animate-fade-in-up">
+                        Exclusive guides to help you grow, fund, and scale your business — available instantly.
+                    </p>
+                </div>
+
+                <div class="grid gap-10 md:grid-cols-3">
+                    <!-- E-book Card -->
+                    <div
+                        class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden animate-fade-in-up">
+                        <div class="overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?auto=format&fit=crop&w=600&q=80"
+                                alt="E-book 1"
+                                class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-6 flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">Funding Blueprint</h3>
+                                <p class="text-gray-600 mb-4">Step-by-step strategies for securing capital to grow your
+                                    venture.</p>
+                            </div>
+                            <button onclick="simulateCheckout('Funding Blueprint', '$19.99')"
+                                class="mt-auto inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-2 rounded-lg transition-colors duration-300">
+                                Buy Now — $19.99
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- E-book Card -->
+                    <div
+                        class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden animate-fade-in-up">
+                        <div class="overflow-hidden">
+                            <img src="logo.jpg" alt="E-book 2"
+                                class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-6 flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">Booked & Profitable</h3>
+                                <p class="text-gray-600 mb-4">Proven marketing tactics to keep your calendar full and
+                                    revenue flowing.</p>
+                            </div>
+                            <button onclick="simulateCheckout('Booked & Profitable', '$24.99')"
+                                class="mt-auto inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-2 rounded-lg transition-colors duration-300">
+                                Buy Now — $24.99
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- E-book Card -->
+                    <div
+                        class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden animate-fade-in-up">
+                        <div class="overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?auto=format&fit=crop&w=600&q=80"
+                                alt="Book cover for Scaling Secrets featuring a single closed hardcover book with a minimalist modern design placed on a clean surface, soft lighting suggesting a focused and inspiring atmosphere. The cover displays the text Scaling Secrets in bold font."
+                                class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-6 flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">Scaling Secrets</h3>
+                                <p class="text-gray-600 mb-4">Advanced systems and mindset shifts for taking your
+                                    business to the next level.</p>
+                            </div>
+                            <button onclick="simulateCheckout('Scaling Secrets', '$29.99')"
+                                class="mt-auto inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-2 rounded-lg transition-colors duration-300">
+                                Buy Now — $29.99
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-10 px-6 md:px-12 mt-auto">
+        <div class="container mx-auto text-center">
+            <p class="text-lg">&copy; 2024 BC Horizon (Booked and Funded). All rights reserved.</p>
+            <p class="mt-3 text-base text-blue-300">Empowering Your Vision, Funding Your Future.</p>
+            <div class="flex flex-wrap justify-center space-x-6 mt-6 text-base">
+                <a href="https://www.instagram.com/bookedandfunded" target="_blank" rel="noopener noreferrer"
+                    class="hover:text-blue-400 transition duration-200">Instagram</a>
+                <a href="#contact" class="hover:text-blue-400 transition duration-200"
+                    onclick="showSection('home-section', 'contact-form-section'); return false;">Contact</a>
+
+            </div>
+
+        </div>
+    </footer>
+
+    <script>
+        // Function to show a custom message box instead of alert()
+        function showMessageBox(message, title = "Notification") {
+            const container = document.getElementById('messageBoxContainer');
+            if (!container) return;
+
+            // Clear any existing message box to prevent duplicates
+            container.innerHTML = '';
+
+            // Create backdrop
+            const backdrop = document.createElement('div');
+            backdrop.className = 'message-box-backdrop';
+            backdrop.onclick = hideMessageBox; // Click outside to close
+
+            // Create message box
+            const messageBox = document.createElement('div');
+            messageBox.className = 'message-box';
+            messageBox.innerHTML = `
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">${title}</h3>
+                <p class="text-xl font-semibold text-gray-700 mb-6">${message}</p>
+                <button class="btn-primary text-base px-6 py-2" onclick="hideMessageBox()">OK</button>
+            `;
+
+            container.appendChild(backdrop);
+            container.appendChild(messageBox);
+        }
+
+        // Function to simulate a checkout process
+        function simulateCheckout(itemName, itemPrice) {
+            showMessageBox(`Initiating secure checkout for: <br/> <strong>${itemName}</strong> at <strong>${itemPrice}</strong>. <br/> Redirecting to payment portal...`, 'Secure Checkout');
+            // In a real application, you would redirect to a payment gateway here.
+        }
+
+        function hideMessageBox() {
+            const container = document.getElementById('messageBoxContainer');
+            if (container) {
+                const messageBox = container.querySelector('.message-box');
+                const backdrop = container.querySelector('.message-box-backdrop');
+
+                if (messageBox) {
+                    messageBox.style.animation = 'fadeOut 0.3s forwards';
+                    messageBox.addEventListener('animationend', () => {
+                        container.innerHTML = ''; // Clear content after animation
+                    }, { once: true });
+                } else {
+                    container.innerHTML = '';
+                }
+            }
+        }
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+        const menuBtn = document.getElementById('menu-btn');
+        if (menuBtn) {
+            menuBtn.addEventListener('click', toggleMobileMenu);
+        }
+
+
+        // Initial load: ensure only home section is active and scroll to top
+        window.onload = function () {
+            showSection('home-section');
+        };
+
+        // Optional: Intersection Observer for fade-in-up animations on elements as they enter viewport
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-up'); /* Use the specific PayPal animation class */
+                    entry.target.style.opacity = '1'; /* Ensure opacity is set for the animation */
+                    observer.unobserve(entry.target); /* Stop observing once animated */
+                }
+            });
+        }, observerOptions);
+
+        // Apply observer to elements that should animate on scroll
+        document.querySelectorAll('.animate-fade-in-up').forEach(element => {
+            observer.observe(element);
+        });
+
+    </script>
+</body>
+
+</html>
