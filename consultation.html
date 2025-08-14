@@ -213,7 +213,7 @@
                 onclick="showSection('home-section'); toggleMobileMenu();">Home</a>
 
             <a href="consultation.html" class="block hover:text-blue-600 transition"
-                onclick="showSection('ebooks-section'); toggleMobileMenu();">Consultation</a>
+                onclick="showSection('consultation-section'); toggleMobileMenu();">Consultation</a>
             <a href="contact.html" class="block hover:text-blue-600 transition"
                 onclick="showSection('home-section', 'contact-form-section'); toggleMobileMenu();">Contact Us</a>
         </div>
@@ -221,206 +221,191 @@
 
 
 
-
-    <!-- Hero -->
-    <section id="home"
-        class="relative min-h-screen flex items-center justify-center text-center text-white bg-gradient-to-br from-blue-700 to-indigo-800 overflow-hidden">
-        <div class="absolute inset-0 bg-[url('logo.jpg')] bg-cover bg-center opacity-20">
-        </div>
-        <div class="relative z-10 max-w-3xl px-6 fade-up">
-            <h1 class="text-5xl md:text-6xl font-black mb-6 leading-tight">Your Path to Being <br> <span
-                    class="text-blue-300">Booked & Funded</span></h1>
-            <p class="text-lg md:text-xl mb-8 opacity-90">Master your Airbnb strategy and unlock business credit funding with personalized, no-fluff consultations.</p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="consultation.html"
-                    class="bg-white text-blue-700 font-bold py-3 px-8 rounded-full shadow-lg hover:scale-105 transition">Book
-                    a Consultation</a>
-                
-            </div>
-        </div>
-    </section>
-
-    <!-- About Us Section -->
-    <section class="py-24 bg-white">
-        <div class="max-w-6xl mx-auto px-6 sm:px-8 text-center">
-            <div
-                class="bg-gray-900 text-white rounded-3xl p-10 md:p-16 shadow-2xl relative overflow-hidden card-hover-effect animate-fade-in-up">
-                <div class="absolute inset-0 bg-pattern opacity-5"></div>
-                <h2 class="text-4xl font-bold text-center mb-8 relative z-10">About BC Horizon</h2>
-                <p class="text-lg text-gray-300 leading-relaxed text-center max-w-4xl mx-auto relative z-10">
-                    At <strong class="text-blue-400">BC Horizon</strong>, we are committed to transforming
-                    entrepreneurial visions into tangible successes. We specialize in providing comprehensive,
-                    actionable strategies and critical financial guidance that empowers businesses to not only attract
-                    and retain ideal clients but also secure the essential funding for robust, sustainable growth. Your
-                    ambition is our blueprint for success.
-                </p>
-            </div>
-        </div>
-    </section>
+    <!-- <div class="bg-blue-600 relative overflow-hidden">
 
 
-    <!-- <section class="py-24 bg-white">
-        <div class="max-w-6xl mx-auto px-6 sm:px-8 text-center">
-            <div
-                class="bg-gray-900 text-white rounded-3xl p-10 md:p-16 shadow-2xl relative overflow-hidden card-hover-effect animate-fade-in-up">
-                <h2 class="text-4xl font-bold text-center mb-8 relative z-10">Why Work With Me?</h2>
-                <p class="text-lg text-gray-300 leading-relaxed text-center max-w-4xl mx-auto relative z-10">
-                    I cut through the noise. In just <strong class="text-blue-400">60 minutes</strong>, you’ll get:
-                </p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 text-left">
-                    <div class="flex items-start">
-                        <span class="text-blue-400 text-2xl mr-3">🏡</span>
-                        <div>
-                            <h3 class="font-bold text-white">Airbnb Domination</h3>
-                            <p class="text-gray-400">Optimize listings, pricing, and guest management to maximize
-                                profits.</p>
+        <section id="ebooks" class="relative py-24 bg-gradient-to-b fro-white via-gray-50 to-gray-100">
+            <div class="max-w-7xl mx-auto px-6 md:px-12">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 animate-fade-in-up">Explore Our E-books
+                    </h2>
+                    <p class="mt-4 text-lg text-white max-w-2xl mx-auto animate-fade-in-up">
+                        Exclusive guides to help you grow, fund, and scale your business — available instantly.
+                    </p>
+                </div>
+
+                <div class="grid gap-10 md:grid-cols-3">
+                    
+                    <div
+                        class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden animate-fade-in-up">
+                        <div class="overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?auto=format&fit=crop&w=600&q=80"
+                                alt="E-book 1"
+                                class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-6 flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">Funding Blueprint</h3>
+                                <p class="text-gray-600 mb-4">Step-by-step strategies for securing capital to grow your
+                                    venture.</p>
+                            </div>
+                            <button onclick="simulateCheckout('Funding Blueprint', '$19.99')"
+                                class="mt-auto inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-2 rounded-lg transition-colors duration-300">
+                                Buy Now — $19.99
+                            </button>
                         </div>
                     </div>
-                    <div class="flex items-start">
-                        <span class="text-blue-400 text-2xl mr-3">💳</span>
-                        <div>
-                            <h3 class="font-bold text-white">Business Credit Decoded</h3>
-                            <p class="text-gray-400">Fix errors, boost scores, and secure funding fast.</p>
+
+                  
+                    <div
+                        class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden animate-fade-in-up">
+                        <div class="overflow-hidden">
+                            <img src="logo.jpg" alt="E-book 2"
+                                class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-6 flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">Booked & Profitable</h3>
+                                <p class="text-gray-600 mb-4">Proven marketing tactics to keep your calendar full and
+                                    revenue flowing.</p>
+                            </div>
+                            <button onclick="simulateCheckout('Booked & Profitable', '$24.99')"
+                                class="mt-auto inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-2 rounded-lg transition-colors duration-300">
+                                Buy Now — $24.99
+                            </button>
+                        </div>
+                    </div>
+
+                   
+                    <div
+                        class="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden animate-fade-in-up">
+                        <div class="overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?auto=format&fit=crop&w=600&q=80"
+                                alt="Book cover for Scaling Secrets featuring a single closed hardcover book with a minimalist modern design placed on a clean surface, soft lighting suggesting a focused and inspiring atmosphere. The cover displays the text Scaling Secrets in bold font."
+                                class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-6 flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">Scaling Secrets</h3>
+                                <p class="text-gray-600 mb-4">Advanced systems and mindset shifts for taking your
+                                    business to the next level.</p>
+                            </div>
+                            <button onclick="simulateCheckout('Scaling Secrets', '$29.99')"
+                                class="mt-auto inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-2 rounded-lg transition-colors duration-300">
+                                Buy Now — $29.99
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
+        </section>
+    </div> -->
+
+
+   
+
+    <section class="relative py-32 bg-gradient-to-br from-blue-700 to-indigo-800 text-white text-center">
+        <div class="max-w-4xl mx-auto px-6">
+            <h1 class="text-4xl md:text-5xl font-black mb-6">60-Minute Power Sessions</h1>
+            <p class="text-xl opacity-90 mb-8">Get laser-focused strategies to scale your Airbnb or secure business
+                funding.</p>
+            <div class="bg-white/10 backdrop-blur-sm inline-flex p-1 rounded-full">
+                <span class="bg-white text-blue-700 py-2 px-6 rounded-full font-bold">$397 per session</span>
+            </div>
         </div>
-    </section> -->
+    </section>
 
-
-
-
-    <section id="services" class="py-24 bg-gradient-to-tr from-white via-blue-50 to-white">
-        <div class="max-w-6xl mx-auto px-6 sm:px-12 text-center">
-            <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-12 tracking-tight">
-                Invest 60 Minutes. Transform Your Business.
-            </h2>
-
-            <!-- Grid container for two columns on large screens -->
-            <div class="grid gap-12 lg:grid-cols-2 lg:items-start">
-
-                <!-- Airbnb Consultation Card -->
-                <div class="bg-white rounded-3xl p-8 shadow-lg border border-blue-200 text-left card-hover-effect">
-                    <div class="flex items-center mb-4">
-                        <span class="bg-blue-100 text-blue-800 p-3 rounded-full mr-4">🏡</span>
-                        <h3 class="text-2xl font-bold text-gray-900">Airbnb Power Hour</h3>
-                    </div>
-                    <p class="text-gray-700 mb-6">
-                        Stop leaving money on the table. I'll analyze your listing, pricing strategy, and guest funnel
-                        to identify instant wins.
-                    </p>
-                    <ul class="space-y-3 mb-6">
-                        <li class="flex items-center"><span class="text-blue-500 mr-2">✓</span> Listing optimization
-                            audit</li>
-                        <li class="flex items-center"><span class="text-blue-500 mr-2">✓</span> Dynamic pricing
-                            strategies</li>
+    <!-- Services Detail -->
+    <section class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <!-- Airbnb Consultation -->
+            <div class="flex flex-col md:flex-row gap-12 items-center mb-24">
+                <div class="md:w-1/2">
+                    <div
+                        class="bg-blue-100 text-blue-800 w-16 h-16 rounded-2xl flex items-center justify-center text-3xl mb-6">
+                        🏡</div>
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">Airbnb Consultation</h2>
+                    <p class="text-gray-700 mb-6">Turn your property into a high-performing asset with data-driven
+                        optimizations.</p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center"><span class="text-blue-500 mr-2">✓</span> Listing SEO &
+                            photography critique</li>
+                        <li class="flex items-center"><span class="text-blue-500 mr-2">✓</span> Dynamic pricing strategy
+                            session</li>
                         <li class="flex items-center"><span class="text-blue-500 mr-2">✓</span> Guest communication
                             templates</li>
+                        <li class="flex items-center"><span class="text-blue-500 mr-2">✓</span> 30-day action plan</li>
                     </ul>
-                    <a href="contact.html"
-                        class="inline-block w-full py-3 px-6 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg text-center transition">
+                    <a href="contact.html?service=airbnb"
+                        class="inline-block py-3 px-8 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition">
                         Book Airbnb Session — $397
                     </a>
                 </div>
+                <div class="md:w-1/2 bg-gray-100 rounded-2xl overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945" alt="Airbnb consultation"
+                        class="w-full h-auto object-cover">
+                </div>
+            </div>
 
-                <!-- Business Credit Card -->
-                <div class="bg-white rounded-3xl p-8 shadow-lg border border-indigo-200 text-left card-hover-effect">
-                    <div class="flex items-center mb-4">
-                        <span class="bg-indigo-100 text-indigo-800 p-3 rounded-full mr-4">💳</span>
-                        <h3 class="text-2xl font-bold text-gray-900">Business Credit Deep Dive</h3>
-                    </div>
-                    <p class="text-gray-700 mb-6">
-                        Your credit profile is your business's financial resume. Let's polish it to attract lenders and
-                        investors.
-                    </p>
-                    <ul class="space-y-3 mb-6">
-                        <li class="flex items-center"><span class="text-indigo-500 mr-2">✓</span> Report analysis &
-                            error correction</li>
-                        <li class="flex items-center"><span class="text-indigo-500 mr-2">✓</span> Score-boosting action
-                            plan</li>
-                        <li class="flex items-center"><span class="text-indigo-500 mr-2">✓</span> Funding roadmap
-                            tailored to your goals</li>
+            <!-- Business Credit Consultation -->
+            <div class="flex flex-col md:flex-row-reverse gap-12 items-center">
+                <div class="md:w-1/2">
+                    <div
+                        class="bg-indigo-100 text-indigo-800 w-16 h-16 rounded-2xl flex items-center justify-center text-3xl mb-6">
+                        💳</div>
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">Business Credit Breakdown</h2>
+                    <p class="text-gray-700 mb-6">Fix errors and position your business to qualify for funding.</p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center"><span class="text-indigo-500 mr-2">✓</span> Credit report
+                            line-by-line review</li>
+                        <li class="flex items-center"><span class="text-indigo-500 mr-2">✓</span> Dispute letter
+                            templates</li>
+                        <li class="flex items-center"><span class="text-indigo-500 mr-2">✓</span> Lender-approved score
+                            boost plan</li>
+                        <li class="flex items-center"><span class="text-indigo-500 mr-2">✓</span> Funding roadmap</li>
                     </ul>
-                    <a href="contact.html"
-                        class="inline-block w-full py-3 px-6 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-lg text-center transition">
+                    <a href="contact.html?service=credit"
+                        class="inline-block py-3 px-8 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-lg transition">
                         Book Credit Session — $397
                     </a>
                 </div>
-
+                <div class="md:w-1/2 bg-gray-100 rounded-2xl overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f"
+                        alt="Business credit consultation" class="w-full h-auto object-cover">
+                </div>
             </div>
         </div>
     </section>
 
-
-
-    <section class="section py-24 from-gray-100 to-white relative overflow-hidden">
-        <div
-            class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center md:items-start gap-12 animate-fade-in-up">
-
-            <!-- Text Content -->
-            <div class="md:w-2/3 flex flex-col items-center md:items-start text-center md:text-left">
-                <h2 class="text-4xl md:text-5xl font-extrabold text-blue-800 mb-4 leading-tight">
-                    <span class="inline-block align-middle mr-3 text-5xl">🏡</span>
-                    Airbnb + Business Credit = <span class="text-indigo-600">Cashflow</span>
-                </h2>
-                <p class="text-lg md:text-xl text-gray-700 mb-6 max-w-2xl">
-                    Discover how leveraging <span class="font-semibold text-blue-700">short-term rentals</span> and
-                    <span class="font-semibold text-indigo-700">smart business credit</span> strategies can unlock new
-                    streams of income and financial freedom.
-                </p>
-                <ul class="text-left space-y-3 text-gray-800 text-base md:text-lg mb-6">
-                    <li class="flex items-center">
-                        <span class="text-green-500 mr-2"><i class="fas fa-check-circle"></i></span>
-                        Step-by-step guidance for launching your Airbnb business
-                    </li>
-                    <li class="flex items-center">
-                        <span class="text-green-500 mr-2"><i class="fas fa-check-circle"></i></span>
-                        Proven methods to build and leverage business credit
-                    </li>
-                    <li class="flex items-center">
-                        <span class="text-green-500 mr-2"><i class="fas fa-check-circle"></i></span>
-                        Maximize cashflow with expert funding and management tips
-                    </li>
-                </ul>
-                <a href="contact.html"
-                    class="inline-block px-8 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold rounded-full shadow-lg hover:from-indigo-700 hover:to-blue-800 transition">
-                    Learn How It Works
-                </a>
+    <!-- Process Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold text-gray-900 mb-12">How It Works</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <div
+                        class="bg-blue-100 text-blue-800 w-12 h-12 rounded-xl flex items-center justify-center text-xl font-bold mb-4 mx-auto">
+                        1</div>
+                    <h3 class="font-bold mb-2">Book Your Session</h3>
+                    <p class="text-gray-600 text-sm">Pay $397 to secure your 60-minute slot</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <div
+                        class="bg-blue-100 text-blue-800 w-12 h-12 rounded-xl flex items-center justify-center text-xl font-bold mb-4 mx-auto">
+                        2</div>
+                    <h3 class="font-bold mb-2">Pre-Session Prep</h3>
+                    <p class="text-gray-600 text-sm">Complete a quick questionnaire</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <div
+                        class="bg-blue-100 text-blue-800 w-12 h-12 rounded-xl flex items-center justify-center text-xl font-bold mb-4 mx-auto">
+                        3</div>
+                    <h3 class="font-bold mb-2">Zoom Deep Dive</h3>
+                    <p class="text-gray-600 text-sm">Get your customized action plan</p>
+                </div>
             </div>
-
-            <!-- Owner Image -->
-            <div class="md:w-1/3 flex justify-center md:justify-end">
-                <img src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?auto=format&fit=facearea&w=400&h=400&facepad=3"
-                    alt="Owner Image" class="rounded-full border-8 border-gray-300 shadow-2xl w-74 h-96 object-cover"
-                    loading="lazy" />
-            </div>
-
         </div>
     </section>
-
-
-    <section class="section py-12 bg-gradient-to-tr from-gray-100 to-white relative overflow-hidden">
-        <div class="text-center  md:mt-16 animate-fade-in-up">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-5">Ready to Define Your Business Horizon?</h2>
-            <p class="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto mb-6 leading-relaxed">
-                Every great success story starts with a conversation. Let's discuss how our tailored consultation
-                approach can unlock your business's full potential.
-            </p>
-            <a href="contact.html"
-                class="inline-flex items-center mt-8 px-8 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-full shadow-lg hover:from-indigo-600 hover:to-blue-700 transition-colors duration-400 tracking-wide group select-none">
-                Schedule a Consultation
-                <svg class="ml-3 w-5 h-5 stroke-2 stroke-current transition-transform group-hover:translate-x-1"
-                    fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
-                </svg>
-            </a>
-        </div>
-    </section>
-
-
-
-
 
 
     <!-- Footer -->
