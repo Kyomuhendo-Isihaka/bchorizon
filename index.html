@@ -17,26 +17,53 @@
         /* Base body and font styles */
         body {
             font-family: 'Inter', sans-serif;
-            background: bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200 text-gray-900 antialiased;
+            background: linear-gradient(to bottom right, #f9fafb, #f3f4f6, #e5e7eb);
+            color: #111827;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         /* Poppins for headings for a bolder, modern look */
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
+        h1, h2, h3, h4, h5, h6 {
             font-family: 'Poppins', sans-serif;
+            letter-spacing: -0.02em;
         }
-
-
 
         /* Glassmorphism effect for the header */
         .glass {
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* Enhanced card hover effects */
+        .card-hover-effect {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .card-hover-effect:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .card-hover-effect::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 2px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.5), rgba(99, 102, 241, 0.5));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .card-hover-effect:hover::before {
+            opacity: 1;
         }
 
 
@@ -168,6 +195,61 @@
         .bg-pattern-light {
             background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'%3E%3Cpath d='M.002 0h2v2h-2V0zm2 2h2v2h-2V2zm2-2h2v2h-2V0zM0 4h2v2H0V4zm2 0h2v2h-2V4zm2 0h2v2h-2V4z'/%3E%3C/g%3E%3C/svg%3E");
         }
+
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Button enhancements */
+        .btn-primary {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn-primary:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        /* Service card icon animation */
+        .service-icon {
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .card-hover-effect:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* Gradient text */
+        .gradient-text {
+            background: linear-gradient(135deg, #3b82f6, #6366f1, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Section divider */
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(59, 130, 246, 0.3), transparent);
+            margin: 4rem 0;
+        }
     </style>
 </head>
 
@@ -224,36 +306,74 @@
 
     <!-- Hero -->
     <section id="home"
-        class="relative min-h-screen flex items-center justify-center text-center text-white bg-gradient-to-br from-blue-700 to-indigo-800 overflow-hidden">
-        <div class="absolute inset-0 bg-[url('logo.jpg')] bg-cover bg-center opacity-20">
+        class="relative min-h-screen flex items-center justify-center text-center text-white bg-gradient-to-br from-blue-700 via-blue-800 to-indigo-900 overflow-hidden">
+        <div class="absolute inset-0 bg-[url('logo.jpg')] bg-cover bg-center opacity-10">
         </div>
-        <div class="relative z-10 max-w-3xl px-6 fade-up">
-            <h1 class="text-5xl md:text-6xl font-black mb-6 leading-tight">Your Path to Being <br> <span
-                    class="text-blue-300">Booked & Funded</span></h1>
-            <p class="text-lg md:text-xl mb-8 opacity-90">Master your Airbnb strategy and unlock business credit funding with personalized, no-fluff consultations.</p>
+        <!-- Animated gradient overlay -->
+        <div class="absolute inset-0 bg-gradient-to-tr from-blue-600/20 via-transparent to-indigo-600/20 animate-pulse"></div>
+        
+        <div class="relative z-10 max-w-4xl px-6 animate-fade-in-up">
+            <div class="inline-block mb-4 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
+                <span class="text-sm font-semibold tracking-wide">🚀 Transform Your Business Today</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight">
+                Your Path to Being<br>
+                <span class="gradient-text bg-gradient-to-r from-blue-200 via-blue-100 to-indigo-200" style="-webkit-text-fill-color: transparent; background-clip: text; -webkit-background-clip: text;">Booked & Funded</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-10 opacity-90 max-w-2xl mx-auto leading-relaxed">Master your Airbnb strategy and unlock business credit funding with personalized, expert consultations.</p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="consultation.html"
-                    class="bg-white text-blue-700 font-bold py-3 px-8 rounded-full shadow-lg hover:scale-105 transition">Book
-                    a Consultation</a>
-                
+                    class="btn-primary bg-white text-blue-700 font-bold py-4 px-10 rounded-full shadow-2xl hover:shadow-blue-500/50 hover:scale-105 transition-all duration-300">
+                    Book a Consultation
+                </a>
+                <a href="#services"
+                    class="bg-transparent border-2 border-white text-white font-bold py-4 px-10 rounded-full hover:bg-white hover:text-blue-700 transition-all duration-300">
+                    View Services
+                </a>
             </div>
+        </div>
+        
+        <!-- Floating elements -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <svg class="w-6 h-6 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
         </div>
     </section>
 
     <!-- About Us Section -->
-    <section class="py-24 bg-white">
-        <div class="max-w-6xl mx-auto px-6 sm:px-8 text-center">
-            <div
-                class="bg-gray-900 text-white rounded-3xl p-10 md:p-16 shadow-2xl relative overflow-hidden card-hover-effect animate-fade-in-up">
+    <section class="py-24 bg-gradient-to-b from-white to-gray-50">
+        <div class="max-w-6xl mx-auto px-6 sm:px-8">
+            <div class="text-center mb-12">
+                <span class="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold mb-4">About Us</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Why Choose BC Horizon?</h2>
+            </div>
+            <div class="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white rounded-3xl p-10 md:p-16 shadow-2xl relative overflow-hidden card-hover-effect">
                 <div class="absolute inset-0 bg-pattern opacity-5"></div>
-                <h2 class="text-4xl font-bold text-center mb-8 relative z-10">About BC Horizon</h2>
-                <p class="text-lg text-gray-300 leading-relaxed text-center max-w-4xl mx-auto relative z-10">
-                    At <strong class="text-blue-400">BC Horizon</strong>, we are committed to transforming
-                    entrepreneurial visions into tangible successes. We specialize in providing comprehensive,
-                    actionable strategies and critical financial guidance that empowers businesses to not only attract
-                    and retain ideal clients but also secure the essential funding for robust, sustainable growth. Your
-                    ambition is our blueprint for success.
+                <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"></div>
+                <div class="absolute bottom-0 left-0 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl"></div>
+                
+                <p class="text-xl text-gray-200 leading-relaxed text-center max-w-4xl mx-auto relative z-10 mb-8">
+                    At <strong class="text-blue-400">BC Horizon</strong>, we transform entrepreneurial visions into tangible successes. We specialize in providing comprehensive, actionable strategies and critical financial guidance that empowers businesses to attract ideal clients and secure essential funding for sustainable growth.
                 </p>
+                
+                <div class="grid md:grid-cols-3 gap-8 mt-12 relative z-10">
+                    <div class="text-center">
+                        <div class="text-4xl mb-3">🎯</div>
+                        <h3 class="text-xl font-bold mb-2">Expert Guidance</h3>
+                        <p class="text-gray-400">Personalized strategies tailored to your business goals</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl mb-3">💼</div>
+                        <h3 class="text-xl font-bold mb-2">Proven Results</h3>
+                        <p class="text-gray-400">Track record of helping businesses succeed</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl mb-3">🚀</div>
+                        <h3 class="text-xl font-bold mb-2">Growth Focused</h3>
+                        <p class="text-gray-400">Your ambition is our blueprint for success</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -291,20 +411,25 @@
 
 
 
-    <section id="services" class="py-24 bg-gradient-to-tr from-white via-blue-50 to-white">
-        <div class="max-w-6xl mx-auto px-6 sm:px-12 text-center">
-            <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-12 tracking-tight">
-                Invest 60 Minutes. Transform Your Business.
-            </h2>
+    <section id="services" class="py-24 bg-gradient-to-br from-blue-50 via-white to-indigo-50 relative overflow-hidden">
+        <div class="absolute inset-0 bg-pattern-light opacity-30"></div>
+        <div class="max-w-7xl mx-auto px-6 sm:px-12 relative z-10">
+            <div class="text-center mb-16">
+                <span class="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold mb-4">What We Offer</span>
+                <h2 class="text-4xl md:text-6xl font-extrabold text-gray-900 mb-4 tracking-tight">
+                    Our <span class="gradient-text">Premium Services</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Comprehensive solutions designed to elevate your business to new heights</p>
+            </div>
 
-            <!-- Grid container for two columns on large screens -->
-            <div class="grid gap-12 lg:grid-cols-2 lg:items-start">
+            <!-- Grid container for multiple columns -->
+            <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 
                 <!-- Airbnb Consultation Card -->
-                <div class="bg-white rounded-3xl p-8 shadow-lg border border-blue-200 text-left card-hover-effect">
+                <div class="bg-white rounded-3xl p-8 shadow-xl border-2 border-blue-100 text-left card-hover-effect group">
                     <div class="flex items-center mb-4">
-                        <span class="bg-blue-100 text-blue-800 p-3 rounded-full mr-4">🏡</span>
-                        <h3 class="text-2xl font-bold text-gray-900">Airbnb Power Hour</h3>
+                        <span class="service-icon bg-gradient-to-br from-blue-500 to-blue-600 text-white text-2xl p-4 rounded-2xl mr-4 shadow-lg">🏡</span>
+                        <h3 class="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">Airbnb Power Hour</h3>
                     </div>
                     <p class="text-gray-700 mb-6">
                         Stop leaving money on the table. I'll analyze your listing, pricing strategy, and guest funnel
@@ -325,10 +450,10 @@
                 </div>
 
                 <!-- Business Credit Card -->
-                <div class="bg-white rounded-3xl p-8 shadow-lg border border-indigo-200 text-left card-hover-effect">
+                <div class="bg-white rounded-3xl p-8 shadow-xl border-2 border-indigo-100 text-left card-hover-effect group">
                     <div class="flex items-center mb-4">
-                        <span class="bg-indigo-100 text-indigo-800 p-3 rounded-full mr-4">💳</span>
-                        <h3 class="text-2xl font-bold text-gray-900">Business Credit Deep Dive</h3>
+                        <span class="service-icon bg-gradient-to-br from-indigo-500 to-indigo-600 text-white text-2xl p-4 rounded-2xl mr-4 shadow-lg">💳</span>
+                        <h3 class="text-xl font-bold text-gray-900 group-hover:text-indigo-600 transition-colors">Business Credit Deep Dive</h3>
                     </div>
                     <p class="text-gray-700 mb-6">
                         Your credit profile is your business's financial resume. Let's polish it to attract lenders and
@@ -348,21 +473,83 @@
                     </a>
                 </div>
 
+                <!-- Google Verification Card -->
+                <div class="bg-white rounded-3xl p-8 shadow-xl border-2 border-green-100 text-left card-hover-effect group">
+                    <div class="flex items-center mb-4">
+                        <span class="service-icon bg-gradient-to-br from-green-500 to-green-600 text-white text-2xl p-4 rounded-2xl mr-4 shadow-lg">✓</span>
+                        <h3 class="text-xl font-bold text-gray-900 group-hover:text-green-600 transition-colors">Google Verification</h3>
+                    </div>
+                    <p class="text-gray-700 mb-6">
+                        Get your business verified on Google to boost credibility and local search visibility.
+                    </p>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Google Business Profile setup</li>
+                        <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Verification process management</li>
+                        <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Enhanced local presence</li>
+                    </ul>
+                    <a href="contact.html"
+                        class="inline-block w-full py-3 px-6 bg-green-600 hover:bg-green-700 text-white font-bold rounded-lg text-center transition">
+                        Get Verified — $97
+                    </a>
+                </div>
+
+                <!-- Business Formation Package Card -->
+                <div class="bg-white rounded-3xl p-8 shadow-xl border-2 border-purple-100 text-left card-hover-effect group">
+                    <div class="flex items-center mb-4">
+                        <span class="service-icon bg-gradient-to-br from-purple-500 to-purple-600 text-white text-2xl p-4 rounded-2xl mr-4 shadow-lg">🚀</span>
+                        <h3 class="text-xl font-bold text-gray-900 group-hover:text-purple-600 transition-colors">Business Formation Package</h3>
+                    </div>
+                    <p class="text-gray-700 mb-6">
+                        Complete business setup including formation, website development, and graphic design.
+                    </p>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-center"><span class="text-purple-500 mr-2">✓</span> Business formation</li>
+                        <li class="flex items-center"><span class="text-purple-500 mr-2">✓</span> Professional website development</li>
+                        <li class="flex items-center"><span class="text-purple-500 mr-2">✓</span> Custom graphic design</li>
+                    </ul>
+                    <p class="text-sm text-gray-600 mb-4 italic">*State fees are separate and vary by state</p>
+                    <a href="contact.html"
+                        class="inline-block w-full py-3 px-6 bg-purple-600 hover:bg-purple-700 text-white font-bold rounded-lg text-center transition">
+                        Get Started — $997
+                    </a>
+                </div>
+
+                <!-- Free Consultation Card -->
+                <div class="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 rounded-3xl p-8 shadow-xl border-2 border-blue-200 text-left card-hover-effect group relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-yellow-400 text-yellow-900 text-xs font-bold px-3 py-1 rounded-bl-lg">FREE</div>
+                    <div class="flex items-center mb-4">
+                        <span class="service-icon bg-gradient-to-br from-blue-500 to-indigo-600 text-white text-2xl p-4 rounded-2xl mr-4 shadow-lg">💬</span>
+                        <h3 class="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">Free Consultation</h3>
+                    </div>
+                    <p class="text-gray-700 mb-6">
+                        Book a complimentary 15-minute consultation to discuss your web or graphic design needs.
+                    </p>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-center"><span class="text-blue-500 mr-2">✓</span> Website design consultation</li>
+                        <li class="flex items-center"><span class="text-blue-500 mr-2">✓</span> Graphic design consultation</li>
+                        <li class="flex items-center"><span class="text-blue-500 mr-2">✓</span> No obligation, 100% free</li>
+                    </ul>
+                    <a href="consultation.html"
+                        class="inline-block w-full py-3 px-6 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold rounded-lg text-center transition">
+                        Book Free Consultation
+                    </a>
+                </div>
+
             </div>
         </div>
     </section>
 
 
 
-    <section class="section py-24 from-gray-100 to-white relative overflow-hidden">
-        <div
-            class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center md:items-start gap-12 animate-fade-in-up">
+    <section class="section py-24 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center md:items-center gap-12 animate-fade-in-up">
 
             <!-- Text Content -->
             <div class="md:w-2/3 flex flex-col items-center md:items-start text-center md:text-left">
-                <h2 class="text-4xl md:text-5xl font-extrabold text-blue-800 mb-4 leading-tight">
+                <span class="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold mb-4">The Winning Formula</span>
+                <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
                     <span class="inline-block align-middle mr-3 text-5xl">🏡</span>
-                    Airbnb + Business Credit = <span class="text-indigo-600">Cashflow</span>
+                    Airbnb + Business Credit = <span class="gradient-text">Cashflow</span>
                 </h2>
                 <p class="text-lg md:text-xl text-gray-700 mb-6 max-w-2xl">
                     Discover how leveraging <span class="font-semibold text-blue-700">short-term rentals</span> and
@@ -400,21 +587,22 @@
     </section>
 
 
-    <section class="section py-12 bg-gradient-to-tr from-gray-100 to-white relative overflow-hidden">
-        <div class="text-center  md:mt-16 animate-fade-in-up">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-5">Ready to Define Your Business Horizon?</h2>
-            <p class="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto mb-6 leading-relaxed">
-                Every great success story starts with a conversation. Let's discuss how our tailored consultation
-                approach can unlock your business's full potential.
+    <section class="section py-20 bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 relative overflow-hidden">
+        <div class="absolute inset-0 bg-pattern-light opacity-10"></div>
+        <div class="text-center max-w-4xl mx-auto px-6 relative z-10 animate-fade-in-up">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Ready to Define Your Business Horizon?</h2>
+            <p class="text-xl text-blue-100 max-w-2xl mx-auto mb-8 leading-relaxed">
+                Every great success story starts with a conversation. Let's discuss how our tailored consultation approach can unlock your business's full potential.
             </p>
             <a href="contact.html"
-                class="inline-flex items-center mt-8 px-8 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-full shadow-lg hover:from-indigo-600 hover:to-blue-700 transition-colors duration-400 tracking-wide group select-none">
+                class="inline-flex items-center px-10 py-4 bg-white text-blue-600 font-bold rounded-full shadow-2xl hover:shadow-white/50 hover:scale-105 transition-all duration-300 group">
                 Schedule a Consultation
                 <svg class="ml-3 w-5 h-5 stroke-2 stroke-current transition-transform group-hover:translate-x-1"
                     fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
                 </svg>
             </a>
+            <p class="mt-6 text-blue-100 text-sm">✨ No commitment required - Let's talk about your goals</p>
         </div>
     </section>
 
@@ -424,18 +612,29 @@
 
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-10 px-6 md:px-12 mt-auto">
-        <div class="container mx-auto text-center">
-            <p class="text-lg">&copy; 2025 BC Horizon (Booked and Funded). All rights reserved.</p>
-            <p class="mt-3 text-base text-blue-300">Empowering Your Vision, Funding Your Future.</p>
-            <div class="flex flex-wrap justify-center space-x-6 mt-6 text-base">
-                <a href="https://www.instagram.com/bookedandfunded" target="_blank" rel="noopener noreferrer"
-                    class="hover:text-blue-400 transition duration-200">Instagram</a>
-                <a href="#contact" class="hover:text-blue-400 transition duration-200"
-                    onclick="showSection('home-section', 'contact-form-section'); return false;">Contact</a>
-
+    <footer class="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-16 px-6 md:px-12 mt-auto relative overflow-hidden">
+        <div class="absolute inset-0 bg-pattern opacity-5"></div>
+        <div class="container mx-auto text-center relative z-10">
+            <div class="mb-8">
+                <img src="logo.jpg" alt="BC Horizon Logo" class="w-16 h-16 rounded-full shadow-lg mx-auto mb-4">
+                <h3 class="text-2xl font-bold mb-2">BC Horizon</h3>
+                <p class="text-blue-300 text-lg font-medium">Empowering Your Vision, Funding Your Future</p>
             </div>
-
+            
+            <div class="flex flex-wrap justify-center gap-8 mb-8">
+                <a href="index.html" class="hover:text-blue-400 transition duration-300 font-medium">Home</a>
+                <a href="consultation.html" class="hover:text-blue-400 transition duration-300 font-medium">Consultation</a>
+                <a href="contact.html" class="hover:text-blue-400 transition duration-300 font-medium">Contact</a>
+                <a href="https://www.instagram.com/bookedandfunded" target="_blank" rel="noopener noreferrer"
+                    class="hover:text-blue-400 transition duration-300 font-medium flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    Instagram
+                </a>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-8">
+                <p class="text-gray-400">&copy; 2025 BC Horizon (Booked and Funded). All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
